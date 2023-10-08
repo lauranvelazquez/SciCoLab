@@ -6,10 +6,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import imagen1 from '../images/sagitarioA.jpg'
-
+import AppBarWithDrawer from './AppBar';
 function Home(){
  return(
     <div>
+      <AppBarWithDrawer/>
         <h1>Home</h1>
         <Card sx={{ maxWidth: 345 }}>
       <CardMedia

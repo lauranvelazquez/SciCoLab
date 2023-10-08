@@ -22,7 +22,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import Router from './Router'; 
-import Proyecto from './Proyecto';
+// import Proyecto from './Proyecto';
 
 import {
   Agriculture as AgricultureIcon,
@@ -308,7 +308,7 @@ export default function AppBarWithDrawer() {
         {renderMenu}
 
         {/* Página principal */}
-        <Proyecto/>
+        {/* <Proyecto/> */}
 
       </Box>
     </ThemeProvider>
