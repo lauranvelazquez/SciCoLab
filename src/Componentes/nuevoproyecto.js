@@ -4,7 +4,8 @@ import { useState,useEffect } from 'react';
 import toolbar from './toolbar';
 import React from 'react';
 import AppBarWithDrawer from './AppBar';
-
+import Button from '@mui/material/Button';
+// import axios from "axios"; 
 function NuevoP(){
     const { quill, quillRef } = useQuill(
         {
@@ -13,7 +14,11 @@ function NuevoP(){
             }
           }
       );
-    
+    // const savenuevoproyecto = () =>{
+    //     // fetch.get('localhost:3002/api/test').then(res => console.log(res))
+
+    //     console.log("AAAAAAAAAAAa")
+    // }
     useEffect(() => {
         if (quill) {
           quill.on('text-change', (delta, oldDelta, source) => {
@@ -30,6 +35,9 @@ function NuevoP(){
     <div className='divCentral'>
         <AppBarWithDrawer/>
         <div className='divEditor' ref={quillRef}> </div>
+        {/* <div>
+            <Button onClick={()=>{ console.log("AAAAAAAAAAAa")}}>GUARDAR</Button>
+        </div> */}
     </div>
  )
 }

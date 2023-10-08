@@ -21,8 +21,14 @@ import ListItemText from '@mui/material/ListItemText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
+import InputLabel from '@mui/material/InputLabel';
 import Router from './Router'; 
-// import Proyecto from './Proyecto';
+import Proyecto from './Proyecto';
+import Home from './Home';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import SearchIcon from '@mui/icons-material/Search';
+
 
 import {
   Agriculture as AgricultureIcon,
@@ -193,47 +199,48 @@ export default function AppBarWithDrawer() {
               noWrap
               component="div"
             >
-              Proyecto
+              PsiCoLab
             </Typography>
             <div sx={{ ml: 2, mr: 2 }}>
-              <FormControl variant="outlined" sx={{ ml: 1, width: '200px', '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: 'white' }, '&:hover fieldset': { borderColor: 'white' } } }}>
-                <Select
-                  value={categoria}
-                  onChange={(e) => setCategoria(e.target.value)}
-                  sx={{ color: 'white' }}
-                  label="Categorías"
-                >
-                  <MenuItem value="">Todas</MenuItem>
-                  {sections.map((section) => (
-                    <MenuItem key={section.name} value={section.name}>
-                      {section.name}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </div>
-            <div sx={{
-              position: 'relative',
-              borderRadius: '25px',
-              backgroundColor: '#f2f2f2',
-              '&:hover': {
-                backgroundColor: '#e0e0e0',
-              },
-              ml: 2,
-              width: '100%',
-            }}>
-              <InputBase
-                icon={<SearchIconMUI/>}
-                placeholder="Buscar…"
-                inputProps={{ 'aria-label': 'search' }}
-                sx={{
-                  padding: '8px 12px',
-                  borderRadius: '25px',
-                  backgroundColor: 'inherit',
-                  width: '100%',
-                  paddingLeft: '40px', // Espacio para el icono de búsqueda
-                }}
-              />
+            <FormControl variant="outlined" size='small' sx={{ ml: 1, width: '200px', '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: 'white' }, '&:hover fieldset': { borderColor: 'white' } } }}>
+            {/* Añadir InputLabel con la etiqueta "Categorías" */}
+            <InputLabel id="select-categorias-label" sx={{color:'white'}}>Categorías</InputLabel>
+            <Select
+              labelId="select-categorias-label" // Identificador de la etiqueta
+              value={categoria}
+              onChange={(e) => setCategoria(e.target.value)}
+              sx={{ color: 'white' }}
+              label="Categorías" // Establecer la etiqueta aquí
+            >
+              <MenuItem value="">Todas</MenuItem>
+              {sections.map((section) => (
+                <MenuItem key={section.name} value={section.name}>
+                  {section.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+
+          <FormControl variant="outlined" size='small' sx={{ ml: 1, width: '200px', '& .MuiOutlinedInput-root': { '& fieldset': { borderColor: 'white' }, '&:hover fieldset': { borderColor: 'white' } } }}>
+            <TextField
+              label="Buscar..."
+              size="small"
+              variant="outlined"
+              fullWidth
+              sx={{ color: 'white', backgroundColor: 'transparent', '& input': { color: 'white' }, '& fieldset': { borderColor: 'transparent' } }}
+              InputLabelProps={{
+                sx: { color: 'white' }, // Esto cambiará el color del label
+              }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start" sx={{ color: 'white', marginLeft: '8px', marginRight: '0' }}>
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </FormControl>
+
             </div>
             <Button color="inherit">Nuevo</Button>
             <Button color="inherit">Destacados</Button>
@@ -308,7 +315,7 @@ export default function AppBarWithDrawer() {
         {renderMenu}
 
         {/* Página principal */}
-        {/* <Proyecto/> */}
+        <Home/>
 
       </Box>
     </ThemeProvider>
